@@ -1,1 +1,3 @@
 # django_test
+
+# Hi everyone! This is Sepehr. We're getting familiar with GitHub...
