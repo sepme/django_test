@@ -4,10 +4,32 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-    Hi {{ user.username }}!
-    <p><a href="{% url 'logout' %}">Logout<a/></p>
+    <div style="position: fixed; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); text-align: center; font-family: 'Verdana' ">
+        <div style="background-color: lightsalmon; width: max-content; height: max-content; padding: 30px; border: 5px dotted black; border-radius: 20px">
+            <p>Hi {{ user.username }}!</p>
+            <p>You are almost logged in!</p>
+            <p>You can enter your profile page by clicking on this button:</p>
+        </div>
+        <div style="margin-top: 10px; text-align: center;">
+            <div style="display: inline-block; padding: 10px; border: 3px solid black; border-radius: 20px; left: 0px; background-color: limegreen;  width: max-content; height: max-content">
+                <p><a href="{% url 'logout' %}">Logout</a></p>
+            </div>
+            <div style="display: inline-block; padding: 10px; border: 3px solid black; border-radius: 20px; right: 0px; background-color: limegreen; width: max-content; height: max-content">
+                <p><a href="{% url 'profile' %}">Profile</a></p>
+            </div>
+        </div>
+    </div>
 {% else %}
-    <p>You are not logged in!</p>
-    <a href="{% url 'login' %}">Login</a>
+    <div style="position: fixed; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); text-align: center; font-family: 'Verdana'">
+        <div style="background-color: lightsalmon; width: max-content; height: max-content; padding: 30px; border: 5px dotted black; border-radius: 20px">
+            <p>Welcome!</p>
+            <p>To use website utilities, please first login</p>
+        </div>
+        <div style="margin-top: 10px; text-align: center;">
+            <div style="display: inline-block; padding: 10px; border: 3px solid black; border-radius: 20px; left: 0px; background-color: limegreen;  width: max-content; height: min-content">
+                <p><a href="{% url 'login' %}">Login</a></p>
+            </div>
+        </div>
+    </div>
 {% endif %}
 {% endblock %}
