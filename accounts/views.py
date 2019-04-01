@@ -1,3 +1,7 @@
 from django.shortcuts import render
+import accounts.models as models
+from django.views import generic
 
-# Create your views here.
+class BookList(generic.ListView):
+    model = models.Book
+    template_name = 'profile.html'

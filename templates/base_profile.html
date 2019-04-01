@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+</head>
+<body>
+    <main>
+    <div style="position: fixed; width: 20%; height: 100%; left: 0px; display: inline-block;">
+    {% if user.is_authenticated %}
+        <ul style="list-style-type: none">
+            <li>{% block user_name %}{% endblock %}</li>
+            </br>
+            <li><a href="/book-list">Book List</a></li>
+            <li><a href="/author-list">Author List</a></li>
+            <li><a href="/publisher-list">Publisher List</a></li>
+            </br>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    {% endif %}
+    </div>
+    <div style="position: fixed; width: 80%; height: 100%; right: 0px; display: inline-block;">
+        {% block content %}
+        {% endblock %}
+    </div>
+    </main>
+</body>
+</html>

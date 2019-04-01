@@ -1,11 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'base_profile.html' %}
 
 {% block title %}Home{% endblock %}
 
+{% block user_name %}Hi {{ user.username }}!{% endblock %}
+
 {% block content %}
 {% if user.is_authenticated %}
-    <div style="position: fixed; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); background-color: lightsalmon; text-align: center; width: max-content; height: 20%; padding: 30px; border: 5px dotted black; border-radius: 20px">
-    <p style="font-size: xx-large; color: red; font-family: 'Verdana'">Hi {{ user.username }}!</p>
+    <div style="position: relative; top: 45%; left: 45%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); background-color: lightsalmon; text-align: center; width: max-content; height: 20%; padding: 30px; border: 5px dotted black; border-radius: 20px">
+    <p style="font-size: xx-large; color: red; font-family: 'Verdana'">We will come back soon!</p>
     <p><a href="{% url 'logout' %}" style="font-size: x-large; font-family: 'Verdana'">Logout</a></p>
     </div>
 {% else %}
