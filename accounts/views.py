@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.views import generic
 from django.http import HttpResponseRedirect
 
@@ -17,9 +17,13 @@ def add_book(request):
             name = form.cleaned_data['name']
             author = form.cleaned_data['author']
             publisher = form.cleaned_data['publisher']
-            new_book = models.Book(name=name,author=author,publisher=publisher)
+            new_book = models.Book(name=name, author=author, publisher=publisher)
             new_book.save()
-            return HttpResponseRedirect('book_list')
+            author.book_number += 1
+            author.save()
+            publisher.book_number += 1
+            publisher.save()
+            return HttpResponseRedirect(reverse('book_list'))
     else:
         form = AddBook()
     return render(request, 'add_book.html', {'form':form})
