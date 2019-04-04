@@ -1,0 +1,14 @@
+{% extends 'base_profile.html' %}
+
+{% block title %}Add Book{% endblock %}
+
+{% block user_name %}Hi {{ user.username }}!{% endblock %}
+
+{% block content %}
+    <h2>Add Book</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

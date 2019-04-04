@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+    {% block style %}{% endblock %}
 </head>
 <body>
     <main>
@@ -11,7 +12,7 @@
         <ul style="list-style-type: none">
             <li>{% block user_name %}{% endblock %}</li>
             </br>
-            <li><a href="/book-list">Book List</a></li>
+            <li><a href="{% url 'book_list' %}">Book List</a></li>
             <li><a href="/author-list">Author List</a></li>
             <li><a href="/publisher-list">Publisher List</a></li>
             </br>
