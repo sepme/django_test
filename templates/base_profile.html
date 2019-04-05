@@ -13,8 +13,8 @@
             <li>{% block user_name %}{% endblock %}</li>
             </br>
             <li><a href="{% url 'book_list' %}">Book List</a></li>
-            <li><a href="/author-list">Author List</a></li>
-            <li><a href="/publisher-list">Publisher List</a></li>
+            <li><a href="{% url 'author_list' %}">Author List</a></li>
+            <li><a href="{% url 'publisher_list' %}">Publisher List</a></li>
             </br>
             <li><a href="{% url 'logout' %}">Logout</a></li>
         </ul>

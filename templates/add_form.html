@@ -5,7 +5,7 @@
 {% block user_name %}Hi {{ user.username }}!{% endblock %}
 
 {% block content %}
-    <h2>Add Book</h2>
+    <h2>Add {{ object_name }}</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

@@ -1,0 +1,45 @@
+{% extends 'base_profile.html' %}
+
+{% block style %}
+    <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 80%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+{% endblock %}
+
+{% block title %}Publisher List{% endblock %}
+
+{% block user_name %}Hi {{ user.username }}!{% endblock %}
+
+{% if publisher_list %}
+    {% block content %}
+        <h2>Publisher List <a href="{% url 'publisher_add' %}">[Add]</a></h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Number of Publications</th>
+            </tr>
+        {% for publisher in publisher_list %}
+            <tr>
+                <td>{{ publisher.name }}</td>
+                <td>{{ publisher.book_number }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endblock %}
+{% else %}
+    <h2>There is no publisher added yet!</h2>
+{% endif %}
