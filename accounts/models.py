@@ -12,6 +12,7 @@ class Publisher(models.Model):
 class Author(models.Model):
     name = models.CharField(max_length=50)
     book_number = models.IntegerField(default=0)
+    age = models.IntegerField()
 
     def __str__(self):
         return self.name

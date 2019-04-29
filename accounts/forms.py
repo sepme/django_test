@@ -10,6 +10,7 @@ class AddBook(forms.Form):
 
 class AddAuthor(forms.Form):
     name = forms.CharField(label="Name")
+    age = forms.CharField(label="Age")
 
 
 class AddPublisher(forms.Form):
